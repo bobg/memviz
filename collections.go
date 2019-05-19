@@ -16,11 +16,6 @@ func (m *mapper) mapStruct(structVal reflect.Value) (nodeID, string) {
 	var links []string
 	for index := 0; index < uType.NumField(); index++ {
 		field := structVal.Field(index)
-		if !field.CanAddr() {
-			// TODO: when does this happen? Can we work around it?
-			continue
-		}
-
 		var addr *uintptr
 		func() {
 			defer recover()

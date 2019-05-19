@@ -20,7 +20,20 @@ func (m *mapper) mapStruct(structVal reflect.Value) (nodeID, string) {
 			// TODO: when does this happen? Can we work around it?
 			continue
 		}
-		field = reflect.NewAt(field.Type(), unsafe.Pointer(field.UnsafeAddr())).Elem()
+
+		var addr *uintptr
+		func() {
+			defer recover()
+
+			result := field.UnsafeAddr()
+			addr = new(uintptr)
+			*addr = result
+		}()
+		if addr == nil {
+			continue
+		}
+
+		field = reflect.NewAt(field.Type(), unsafe.Pointer(*addr)).Elem()
 		fieldID, summary := m.mapValue(field, id, true)
 
 		// if field was inlined (id == 0) then print summary, else just the name and a link to the actual

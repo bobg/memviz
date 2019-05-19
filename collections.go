@@ -18,7 +18,9 @@ func (m *mapper) mapStruct(structVal reflect.Value) (nodeID, string) {
 		field := structVal.Field(index)
 		var addr *uintptr
 		func() {
-			defer recover()
+			defer func() {
+				recover()
+			}()
 
 			result := field.UnsafeAddr()
 			addr = new(uintptr)

@@ -1,4 +1,4 @@
-module github.com/bradleyjkemp/memviz
+module github.com/bobg/memviz
 
 require (
 	github.com/bradleyjkemp/cupaloy/v2 v2.5.0

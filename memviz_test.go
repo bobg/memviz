@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/bradleyjkemp/cupaloy/v2"
-	"github.com/bradleyjkemp/memviz"
+	"github.com/bobg/memviz"
 )
 
 //nolint:structcheck,megacheck

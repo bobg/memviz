@@ -3,9 +3,9 @@ package memviz
 import (
 	"bytes"
 	"fmt"
-	"github.com/bradleyjkemp/cupaloy/v2"
 	"testing"
 
+	"github.com/bradleyjkemp/cupaloy/v2"
 	"github.com/stretchr/testify/assert"
 )
 

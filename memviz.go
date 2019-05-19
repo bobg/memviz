@@ -1,4 +1,4 @@
-package memviz // import "github.com/bradleyjkemp/memviz"
+package memviz
 
 import (
 	"fmt"
